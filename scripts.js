@@ -1,4 +1,4 @@
-const SIZE = 10;
+const SIZE = 7;
 const EVENT_TITLE = '莆田第一中学第三届 3099 知识竞赛决赛';
 const CREDITS_DEV = 'Dev: [Github] Adehit';
 const CREDITS_ARTIST = 'Artist: Mojang';
@@ -693,9 +693,9 @@ document.onkeydown = function (event) {
         nowChoosePanel = 'B';
         nowChoosePos = [-1, -1];
         refreshMaps();
-    } else if ((event.key <= '9' && event.key >= '1') || event.key === '0') {
+    } else if (event.key.length === 1 && event.key >= '1' && event.key <= String(SIZE)) {
         if (nowChoosePanel === '') { return; }
-        const pos = event.key === '0' ? 9 : parseInt(event.key) - 1;
+        const pos = parseInt(event.key, 10) - 1;
         if (nowChoosePos[0] === -1) {
             nowChoosePos[0] = pos;
         } else {
